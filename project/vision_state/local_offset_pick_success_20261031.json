@@ -1,0 +1,11 @@
+{
+  "mode": "camera-localized pickup using local joint-map offset anchored to operator-verified grasp",
+  "object_pixel": [478.47, 592.82],
+  "anchor_pixel_estimated": [426.022, 585.122],
+  "anchor_pose_file": "verified_adjusted_pick_sequence_20261031.json",
+  "mapping_file": "local_mapping_20261031T202450/mapping.json",
+  "operator_confirmed_success": true,
+  "operator_report": "สำเร็จน้องชาย",
+  "visual_tracking_during_execution": false,
+  "scope": "One successful operator-confirmed trial at a shifted object location; not validation of the full grid or automatic grasp verification."
+}

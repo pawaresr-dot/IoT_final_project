@@ -1,0 +1,76 @@
+{
+  "schema": "local_camera_joint_mapping_v1",
+  "samples": [
+    {
+      "pixel": [
+        350,
+        450
+      ],
+      "raw": {
+        "shoulder_pan": 2037,
+        "shoulder_lift": 2716,
+        "elbow_flex": 2164,
+        "wrist_flex": 2111,
+        "wrist_roll": 2101
+      },
+      "captured_at": 1793453350.0299258,
+      "camera_generation": 906
+    },
+    {
+      "pixel": [
+        500,
+        450
+      ],
+      "raw": {
+        "shoulder_pan": 1901,
+        "shoulder_lift": 2724,
+        "elbow_flex": 2166,
+        "wrist_flex": 2112,
+        "wrist_roll": 2101
+      },
+      "captured_at": 1793453396.595558,
+      "camera_generation": 906
+    },
+    {
+      "pixel": [
+        500,
+        600
+      ],
+      "raw": {
+        "shoulder_pan": 1900,
+        "shoulder_lift": 2756,
+        "elbow_flex": 2075,
+        "wrist_flex": 2197,
+        "wrist_roll": 2095
+      },
+      "captured_at": 1793453448.482496,
+      "camera_generation": 906
+    },
+    {
+      "pixel": [
+        350,
+        600
+      ],
+      "raw": {
+        "shoulder_pan": 2039,
+        "shoulder_lift": 2691,
+        "elbow_flex": 2075,
+        "wrist_flex": 2197,
+        "wrist_roll": 2095
+      },
+      "captured_at": 1793453557.782486,
+      "camera_generation": 906
+    }
+  ],
+  "motion_validated": false,
+  "center_validation": {
+    "pixel": [425, 525],
+    "target_raw": {"shoulder_pan": 1968, "shoulder_lift": 2736, "elbow_flex": 2120, "wrist_flex": 2154, "wrist_roll": 2098},
+    "operator_center_confirmed": true,
+    "operator_statement": "กลางนะ",
+    "height_confirmed": true,
+    "height_operator_statement": "พอดีจับได้",
+    "scope": "center position and working height operator-confirmed; full pickup not yet verified"
+  },
+  "working_plane_operator_instruction": "same grasp height and wrist orientation for all four points"
+}

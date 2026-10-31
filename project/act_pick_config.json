@@ -1,0 +1,32 @@
+{
+  "dataset": {
+    "repo_id": "local/keychain_normalized",
+    "root": "/Users/pawacha/Documents/programming/year2/IoT/final_project/training_datasets/20261031T112940_normalized_320",
+    "eval_split": 0.0,
+    "image_transforms": {"enable": false}
+  },
+  "policy": {
+    "type": "act",
+    "device": "mps",
+    "push_to_hub": false,
+    "pretrained_backbone_weights": null,
+    "chunk_size": 16,
+    "n_action_steps": 16,
+    "dim_model": 128,
+    "n_heads": 4,
+    "dim_feedforward": 512,
+    "n_encoder_layers": 2,
+    "n_vae_encoder_layers": 2
+  },
+  "output_dir": "/Users/pawacha/Documents/programming/year2/IoT/final_project/training_outputs/act_pick_20261031_01",
+  "job_name": "keychain_close_transfer_open_pilot",
+  "steps": 600,
+  "batch_size": 2,
+  "num_workers": 0,
+  "env_eval_freq": 0,
+  "eval_steps": 0,
+  "log_freq": 50,
+  "save_freq": 200,
+  "wandb": {"enable": false},
+  "seed": 1000
+}

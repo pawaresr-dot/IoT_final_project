@@ -1,0 +1,30 @@
+{
+  "object": {
+    "center": [
+      491.7576904296875,
+      513.1126708984375
+    ],
+    "box": [
+      449,
+      424,
+      88,
+      180
+    ],
+    "angle": 92.53675079345703,
+    "area": 13892.5
+  },
+  "operator_confirmed_success": null,
+  "video_fps": 5,
+  "frames": 328,
+  "camera_errors": [],
+  "sequence_completed": false,
+  "target_raw": {
+    "shoulder_pan": 1839,
+    "shoulder_lift": 2857,
+    "elbow_flex": 2107,
+    "wrist_flex": 2092,
+    "wrist_roll": 2095
+  },
+  "grip_raw": 1936,
+  "error": "Empty grasp; stopped"
+}

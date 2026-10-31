@@ -1,0 +1,29 @@
+{
+  "schema": "operator_adjusted_grasp_pose_v1",
+  "robot_id": "pawacha_so100_follower",
+  "label": "ท่าจับหลังผู้ใช้ปรับขวาและลง",
+  "operator_statement": "ระยะนี้จำ",
+  "captured_at": 1793454643.645396,
+  "raw_position": {
+    "shoulder_pan": 1900,
+    "shoulder_lift": 2841,
+    "elbow_flex": 2063,
+    "wrist_flex": 2133,
+    "wrist_roll": 2093,
+    "gripper": 2370
+  },
+  "issued_goal_raw": {
+    "shoulder_pan": 1900,
+    "shoulder_lift": 2838,
+    "elbow_flex": 2061,
+    "wrist_flex": 2135,
+    "wrist_roll": 2095,
+    "gripper": 2373
+  },
+  "position_stable_on_two_reads": true,
+  "gripper_state": "open",
+  "pickup_verified": true,
+  "pickup_verification_source": "operator confirmed short lift test in chat",
+  "automatic_return_enabled": false,
+  "scope": "Saved current operator-selected pose; no claim of calibrated centimeter displacement or updated full work plane"
+}

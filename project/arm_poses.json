@@ -1,0 +1,81 @@
+{
+  "robot_id": "pawacha_so100_follower",
+  "poses": {
+    "top_left": {
+      "recorded_at": "2026-10-06T16:04:18.900280+00:00",
+      "joint_degrees": {
+        "shoulder_pan": 17.406593406593405,
+        "shoulder_lift": -35.472527472527474,
+        "elbow_flex": 55.38461538461539,
+        "wrist_flex": 71.78021978021978,
+        "wrist_roll": -0.04395604395604396
+      },
+      "gripper_percent": 14.695830485304171,
+      "raw_position": {
+        "shoulder_pan": 2020,
+        "shoulder_lift": 2338,
+        "elbow_flex": 2455,
+        "wrist_flex": 2367,
+        "wrist_roll": 2047,
+        "gripper": 2141
+      }
+    },
+    "top_right": {
+      "recorded_at": "2026-10-06T16:06:18.972082+00:00",
+      "joint_degrees": {
+        "shoulder_pan": -18.9010989010989,
+        "shoulder_lift": -35.472527472527474,
+        "elbow_flex": 52.57142857142857,
+        "wrist_flex": 71.6043956043956,
+        "wrist_roll": 0.04395604395604396
+      },
+      "gripper_percent": 14.695830485304171,
+      "raw_position": {
+        "shoulder_pan": 1607,
+        "shoulder_lift": 2338,
+        "elbow_flex": 2423,
+        "wrist_flex": 2365,
+        "wrist_roll": 2048,
+        "gripper": 2141
+      }
+    },
+    "bottom_left": {
+      "recorded_at": "2026-10-06T16:07:15.180091+00:00",
+      "joint_degrees": {
+        "shoulder_pan": 16.35164835164835,
+        "shoulder_lift": -12.527472527472527,
+        "elbow_flex": 44.30769230769231,
+        "wrist_flex": 47.956043956043956,
+        "wrist_roll": -0.13186813186813187
+      },
+      "gripper_percent": 15.037593984962406,
+      "raw_position": {
+        "shoulder_pan": 2008,
+        "shoulder_lift": 2599,
+        "elbow_flex": 2329,
+        "wrist_flex": 2096,
+        "wrist_roll": 2046,
+        "gripper": 2146
+      }
+    },
+    "bottom_right": {
+      "recorded_at": "2026-10-06T16:09:28.390764+00:00",
+      "joint_degrees": {
+        "shoulder_pan": -19.164835164835164,
+        "shoulder_lift": -5.318681318681318,
+        "elbow_flex": 44.57142857142857,
+        "wrist_flex": 41.97802197802198,
+        "wrist_roll": 0.3076923076923077
+      },
+      "gripper_percent": 14.627477785372523,
+      "raw_position": {
+        "shoulder_pan": 1604,
+        "shoulder_lift": 2681,
+        "elbow_flex": 2332,
+        "wrist_flex": 2028,
+        "wrist_roll": 2051,
+        "gripper": 2140
+      }
+    }
+  }
+}

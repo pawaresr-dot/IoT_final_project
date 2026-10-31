@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="th">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>กล้อง Pi · ตาราง 4 ช่อง</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #141818; color: #edf4f1; font: 15px/1.6 system-ui,sans-serif; }
+  main { max-width: 1200px; margin: auto; padding: 18px; }
+  h1 { font-size: 21px; margin: 0; }
+  p { margin: 6px 0 14px; color: #b7c9c1; }
+  .layout { display: grid; grid-template-columns: minmax(0,1.7fr) minmax(230px,1fr); gap: 16px; }
+  .card { background: #202827; border: 1px solid #384540; border-radius: 12px; padding: 14px; }
+  .camera { position: relative; aspect-ratio: 16/9; background: #080b0a; }
+  .camera img, canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .camera img { object-fit: contain; }
+  canvas { touch-action: none; }
+  .camera-error { position:absolute; inset:0; display:grid; place-content:center; text-align:center; padding:24px; background:#131817; color:#ffd2a5; }
+  .camera-error[hidden] { display:none; }
+  button { padding: 10px 14px; border: 1px solid #6c8a7c; border-radius: 8px; background: #2e493d; color: white; font: inherit; cursor: pointer; }
+  button:disabled { opacity: .4; cursor: default; }
+  .buttons { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+  .cells { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .cell { padding: 10px; border-radius: 8px; background: #313b37; border: 1px solid #52625a; }
+  .empty { background: #204c36; border-color: #58bd85; }
+  .occupied { background: #603b25; border-color: #efb474; }
+  .value { display: block; font-weight: 600; }
+  .muted { color: #bbc8c2; font-size: 13px; }
+  #board { width: 100%; aspect-ratio: 1; object-fit: contain; background: #131817; margin-top: 12px; }
+  #status { min-height: 26px; }
+  #message { color: #efcf8e; min-height: 25px; }
+  @media(max-width:760px) { .layout { grid-template-columns:1fr; } main { padding: 10px; } }
+</style>
+<main>
+  <h1>กล้อง Pi · ตาราง 4 ช่อง</h1>
+  <p>ภาพสดจาก iot.local · เลือกกรอบตาราง แล้วบันทึกภาพตอนทุกช่องว่างและแขนไม่บัง</p>
+  <div class="layout">
+    <section class="card">
+      <div class="camera"><img id="live" src="/stream.mjpg" alt="ภาพสดกล้อง Raspberry Pi"><canvas id="overlay" width="1280" height="720" aria-label="เลือกมุมตาราง"></canvas><div id="camera-error" class="camera-error" role="alert" hidden></div></div>
+      <div class="buttons"><button id="select">เลือกมุมตารางใหม่</button><button id="reference" disabled>บันทึกภาพตารางว่าง</button></div>
+      <div id="status" role="status">กำลังเชื่อมต่อกล้อง Pi…</div>
+      <div id="message" role="status">นำกริปเปอร์และวัตถุออกจากกรอบก่อนบันทึกภาพตารางว่าง</div>
+      <div class="muted">การตรวจช่องในหน้านี้ไม่สั่งแขนขยับ · หากกล้องหรือตารางขยับ ให้เลือกมุมและบันทึกภาพว่างใหม่</div>
+    </section>
+    <section class="card">
+      <div class="cells">
+        <div class="cell" id="top_left">ซ้ายบน<span class="value">ยังไม่ได้บันทึกภาพว่าง</span></div>
+        <div class="cell" id="top_right">ขวาบน<span class="value">ยังไม่ได้บันทึกภาพว่าง</span></div>
+        <div class="cell" id="bottom_left">ซ้ายล่าง<span class="value">ยังไม่ได้บันทึกภาพว่าง</span></div>
+        <div class="cell" id="bottom_right">ขวาล่าง<span class="value">ยังไม่ได้บันทึกภาพว่าง</span></div>
+      </div>
+      <img id="board" alt="ภาพตารางที่ปรับมุมมองแล้ว">
+      <div class="muted">สีส้ม = ภาพเปลี่ยนเกินเกณฑ์ อาจมีวัตถุหรือเงา · ต้องทดสอบกับวัตถุจริงก่อนใช้หยิบ–วาง</div>
+    </section>
+  </div>
+</main>
+<script>
+  const canvas = document.getElementById('overlay'), ctx = canvas.getContext('2d');
+  const statusBox = document.getElementById('status'), message = document.getElementById('message');
+  const reference = document.getElementById('reference'), select = document.getElementById('select');
+  const liveImage = document.getElementById('live'), cameraError = document.getElementById('camera-error');
+  let cameraGeneration = null, streamFailed = false;
+  liveImage.onerror = () => { streamFailed = true; };
+  let state = null, selecting = false, points = [], busy = false, polling = false;
+  const cornerNames = ['ซ้ายบน','ขวาบน','ขวาล่าง','ซ้ายล่าง'];
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    const corners = selecting ? points : (state && state.corners || []);
+    if (corners.length) {
+      ctx.strokeStyle = '#5ff2b3'; ctx.lineWidth = 4; ctx.beginPath();
+      corners.forEach((p,i) => i ? ctx.lineTo(p[0],p[1]) : ctx.moveTo(p[0],p[1]));
+      if(corners.length===4) ctx.closePath(); ctx.stroke();
+      corners.forEach((p,i) => {
+        ctx.fillStyle='#ffffff'; ctx.beginPath(); ctx.arc(p[0],p[1],9,0,Math.PI*2); ctx.fill();
+        ctx.font='bold 24px system-ui'; ctx.fillText(String(i+1),p[0]+14,p[1]+8);
+      });
+    }
+    if (!selecting && state && state.lines) {
+      ctx.strokeStyle = '#ffe59d'; ctx.lineWidth = 3;
+      state.lines.forEach(line => { ctx.beginPath();ctx.moveTo(...line[0]);ctx.lineTo(...line[1]);ctx.stroke(); });
+    }
+  }
+  async function post(path, data) {
+    const response = await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+    const result = await response.json();
+    if(!response.ok) throw Error(result.error || 'ดำเนินการไม่สำเร็จ');
+    return result;
+  }
+  function clearCells(label) {
+    ['top_left','top_right','bottom_left','bottom_right'].forEach(name => {
+      const cell=document.getElementById(name);cell.className='cell';cell.querySelector('.value').textContent=label;
+    });
+  }
+  async function poll() {
+    if(polling)return;polling=true;
+    try {
+      const response=await fetch('/api/board',{cache:'no-store'}), data=await response.json();
+      if(!response.ok) throw Error(data.error || 'กล้องยังไม่พร้อม');
+      state=data;
+      cameraError.hidden=true;liveImage.style.visibility='visible';select.disabled=false;
+      document.getElementById('board').style.visibility='visible';
+      if(cameraGeneration!==data.camera_generation || streamFailed){
+        liveImage.src='/stream.mjpg?generation='+data.camera_generation+'&resume='+Date.now();
+        cameraGeneration=data.camera_generation;streamFailed=false;
+      }
+      if(data.frame_size){canvas.width=data.frame_size[0];canvas.height=data.frame_size[1];}
+      statusBox.textContent=data.reference_ready ? 'กำลังตรวจช่องจากภาพสด' : 'ยังไม่ได้บันทึกภาพตารางว่าง — ยังไม่รายงานว่าช่องว่างหรือมีวัตถุ';
+      reference.disabled=!data.calibrated || selecting || busy;
+      if(!selecting) draw();
+      if(data.cells) Object.entries(data.cells).forEach(([name,value]) => {
+        const cell=document.getElementById(name);
+        cell.className='cell '+(value.occupied?'occupied':'empty');
+        cell.querySelector('.value').textContent=(value.occupied?'พบความเปลี่ยนแปลง':'ว่าง')+' · '+(value.changed_fraction*100).toFixed(1)+'%';
+      }); else clearCells('ยังไม่ได้บันทึกภาพว่าง');
+      if(data.calibrated)document.getElementById('board').src='/board.jpg?frame='+data.sequence;
+    } catch(error) {
+      statusBox.textContent=error.message;reference.disabled=true;clearCells('ยังประเมินไม่ได้');
+      liveImage.style.visibility='hidden';document.getElementById('board').style.visibility='hidden';
+      cameraError.textContent=error.message;cameraError.hidden=false;select.disabled=true;
+    } finally {polling=false;}
+  }
+  select.onclick=() => {
+    selecting=!selecting;points=[];reference.disabled=true;
+    select.textContent=selecting?'ยกเลิกเลือกมุม':'เลือกมุมตารางใหม่';
+    message.textContent=selecting?'คลิกมุม 1: ซ้ายบน ของแผ่นตารางด้านใน':'ยกเลิกแล้ว';draw();
+  };
+  canvas.onclick=async event => {
+    if(!selecting || busy)return;
+    const rect=canvas.getBoundingClientRect();
+    points.push([(event.clientX-rect.left)*canvas.width/rect.width,(event.clientY-rect.top)*canvas.height/rect.height]);draw();
+    if(points.length<4){message.textContent='คลิกมุม '+(points.length+1)+': '+cornerNames[points.length];return;}
+    busy=true;
+    try {
+      await post('/api/corners',{corners:points});
+      selecting=false;select.textContent='เลือกมุมตารางใหม่';
+      message.textContent='บันทึกมุมแล้ว นำแขนและวัตถุออกจากกรอบ แล้วกดบันทึกภาพตารางว่าง';
+    } catch(error) {message.textContent=error.message;points=[];}
+    finally {busy=false;await poll();}
+  };
+  reference.onclick=async () => {
+    busy=true;reference.disabled=true;
+    try {
+      await post('/api/reference',{confirm_empty:true});
+      message.textContent='บันทึกภาพว่างแล้ว ลองวางวัตถุ 1 ชิ้นในช่อง แล้วดูผลด้านข้าง';
+    } catch(error) {message.textContent=error.message;}
+    finally {busy=false;await poll();}
+  };
+  poll();setInterval(poll,600);
+</script>
+</html>

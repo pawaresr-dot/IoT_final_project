@@ -1,0 +1,30 @@
+{
+  "object": {
+    "center": [
+      390.4949035644531,
+      561.9612426757812
+    ],
+    "box": [
+      336,
+      471,
+      112,
+      180
+    ],
+    "angle": 82.50415802001953,
+    "area": 16084.5
+  },
+  "operator_confirmed_success": true,
+  "operator_report": "สำเร็จๆ",
+  "video_fps": 5,
+  "frames": 676,
+  "camera_errors": [],
+  "sequence_completed": true,
+  "target_raw": {
+    "shoulder_pan": 1932,
+    "shoulder_lift": 2835,
+    "elbow_flex": 2077,
+    "wrist_flex": 2119,
+    "wrist_roll": 2094
+  },
+  "grip_raw": 2118
+}

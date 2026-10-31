@@ -1,0 +1,321 @@
+{
+  "robot_id": "pawacha_so100_follower",
+  "poses": {
+    "bottom_left": {
+      "approach": {
+        "recorded_at": "2026-10-22T05:22:02.704351+00:00",
+        "joint_degrees": {
+          "shoulder_pan": 11.956043956043956,
+          "shoulder_lift": -36.79120879120879,
+          "elbow_flex": 58.1978021978022,
+          "wrist_flex": 56.13186813186813,
+          "wrist_roll": -0.04395604395604396
+        },
+        "gripper_percent": 30.82706766917293,
+        "raw_position": {
+          "shoulder_pan": 1958,
+          "shoulder_lift": 2323,
+          "elbow_flex": 2487,
+          "wrist_flex": 2189,
+          "wrist_roll": 2047,
+          "gripper": 2377
+        },
+        "limits": {
+          "shoulder_pan": {
+            "min": 475,
+            "max": 3169
+          },
+          "shoulder_lift": {
+            "min": 1499,
+            "max": 3984
+          },
+          "elbow_flex": {
+            "min": 729,
+            "max": 2921
+          },
+          "wrist_flex": {
+            "min": 373,
+            "max": 2728
+          },
+          "wrist_roll": {
+            "min": 0,
+            "max": 4095
+          },
+          "gripper": {
+            "min": 1926,
+            "max": 3389
+          }
+        },
+        "validation": {
+          "arm_in_range": true,
+          "gripper_in_range": true,
+          "outside_limits": [],
+          "ready_for_motion": false,
+          "note": "Teaching observation; verify gripper targets, clearance, and route before motion."
+        }
+      },
+      "grasp": {
+        "recorded_at": "2026-10-22T05:23:55.365590+00:00",
+        "joint_degrees": {
+          "shoulder_pan": 11.956043956043956,
+          "shoulder_lift": -14.989010989010989,
+          "elbow_flex": 48.61538461538461,
+          "wrist_flex": 52.7032967032967,
+          "wrist_roll": -0.04395604395604396
+        },
+        "gripper_percent": 30.758714969241286,
+        "raw_position": {
+          "shoulder_pan": 1958,
+          "shoulder_lift": 2571,
+          "elbow_flex": 2378,
+          "wrist_flex": 2150,
+          "wrist_roll": 2047,
+          "gripper": 2376
+        },
+        "limits": {
+          "shoulder_pan": {
+            "min": 475,
+            "max": 3169
+          },
+          "shoulder_lift": {
+            "min": 1499,
+            "max": 3984
+          },
+          "elbow_flex": {
+            "min": 729,
+            "max": 2921
+          },
+          "wrist_flex": {
+            "min": 373,
+            "max": 2728
+          },
+          "wrist_roll": {
+            "min": 0,
+            "max": 4095
+          },
+          "gripper": {
+            "min": 1926,
+            "max": 3389
+          }
+        },
+        "validation": {
+          "arm_in_range": true,
+          "gripper_in_range": true,
+          "outside_limits": [],
+          "ready_for_motion": false,
+          "note": "Teaching observation; verify gripper targets, clearance, and route before motion."
+        }
+      },
+      "grasp_closed": {
+        "recorded_at": "2026-10-22T05:25:47.365095+00:00",
+        "joint_degrees": {
+          "shoulder_pan": 11.868131868131869,
+          "shoulder_lift": -14.989010989010989,
+          "elbow_flex": 51.252747252747255,
+          "wrist_flex": 52.08791208791209,
+          "wrist_roll": 0.3076923076923077
+        },
+        "gripper_percent": 21.599453178400545,
+        "raw_position": {
+          "shoulder_pan": 1957,
+          "shoulder_lift": 2571,
+          "elbow_flex": 2408,
+          "wrist_flex": 2143,
+          "wrist_roll": 2051,
+          "gripper": 2242
+        },
+        "limits": {
+          "shoulder_pan": {
+            "min": 475,
+            "max": 3169
+          },
+          "shoulder_lift": {
+            "min": 1499,
+            "max": 3984
+          },
+          "elbow_flex": {
+            "min": 729,
+            "max": 2921
+          },
+          "wrist_flex": {
+            "min": 373,
+            "max": 2728
+          },
+          "wrist_roll": {
+            "min": 0,
+            "max": 4095
+          },
+          "gripper": {
+            "min": 1926,
+            "max": 3389
+          }
+        },
+        "validation": {
+          "arm_in_range": true,
+          "gripper_in_range": true,
+          "outside_limits": [],
+          "ready_for_motion": false,
+          "note": "Teaching observation; verify gripper targets, clearance, and route before motion."
+        },
+        "control_hint": "gripper_only"
+      },
+      "lift": {
+        "recorded_at": "2026-10-22T14:12:14.454995+00:00",
+        "joint_degrees": {
+          "shoulder_pan": 7.384615384615385,
+          "shoulder_lift": -45.75824175824176,
+          "elbow_flex": 76.48351648351648,
+          "wrist_flex": 37.494505494505496,
+          "wrist_roll": 0.3956043956043956
+        },
+        "gripper_percent": 21.326042378673957,
+        "raw_position": {
+          "shoulder_pan": 1906,
+          "shoulder_lift": 2221,
+          "elbow_flex": 2695,
+          "wrist_flex": 1977,
+          "wrist_roll": 2052,
+          "gripper": 2238
+        },
+        "limits": {
+          "shoulder_pan": {
+            "min": 475,
+            "max": 3169
+          },
+          "shoulder_lift": {
+            "min": 1499,
+            "max": 3984
+          },
+          "elbow_flex": {
+            "min": 729,
+            "max": 2921
+          },
+          "wrist_flex": {
+            "min": 373,
+            "max": 2728
+          },
+          "wrist_roll": {
+            "min": 0,
+            "max": 4095
+          },
+          "gripper": {
+            "min": 1926,
+            "max": 3389
+          }
+        },
+        "validation": {
+          "arm_in_range": true,
+          "gripper_in_range": true,
+          "outside_limits": [],
+          "ready_for_motion": false,
+          "note": "Teaching observation; verify gripper targets, clearance, and route before motion."
+        }
+      },
+      "place": {
+        "recorded_at": "2026-10-22T14:17:34.080913+00:00",
+        "joint_degrees": {
+          "shoulder_pan": 53.62637362637363,
+          "shoulder_lift": -45.582417582417584,
+          "elbow_flex": 87.03296703296704,
+          "wrist_flex": 32.92307692307692,
+          "wrist_roll": 0.3076923076923077
+        },
+        "gripper_percent": 14.080656185919343,
+        "raw_position": {
+          "shoulder_pan": 2432,
+          "shoulder_lift": 2223,
+          "elbow_flex": 2815,
+          "wrist_flex": 1925,
+          "wrist_roll": 2051,
+          "gripper": 2132
+        },
+        "limits": {
+          "shoulder_pan": {
+            "min": 475,
+            "max": 3169
+          },
+          "shoulder_lift": {
+            "min": 1499,
+            "max": 3984
+          },
+          "elbow_flex": {
+            "min": 729,
+            "max": 2921
+          },
+          "wrist_flex": {
+            "min": 373,
+            "max": 2728
+          },
+          "wrist_roll": {
+            "min": 0,
+            "max": 4095
+          },
+          "gripper": {
+            "min": 1926,
+            "max": 3389
+          }
+        },
+        "validation": {
+          "arm_in_range": true,
+          "gripper_in_range": true,
+          "outside_limits": [],
+          "ready_for_motion": false,
+          "note": "Teaching observation; verify gripper targets, clearance, and route before motion."
+        }
+      },
+      "retreat": {
+        "recorded_at": "2026-10-22T14:21:19.574047+00:00",
+        "joint_degrees": {
+          "shoulder_pan": 53.62637362637363,
+          "shoulder_lift": -71.95604395604396,
+          "elbow_flex": 80.35164835164835,
+          "wrist_flex": 59.032967032967036,
+          "wrist_roll": -0.04395604395604396
+        },
+        "gripper_percent": 14.080656185919343,
+        "raw_position": {
+          "shoulder_pan": 2432,
+          "shoulder_lift": 1923,
+          "elbow_flex": 2739,
+          "wrist_flex": 2222,
+          "wrist_roll": 2047,
+          "gripper": 2132
+        },
+        "limits": {
+          "shoulder_pan": {
+            "min": 475,
+            "max": 3169
+          },
+          "shoulder_lift": {
+            "min": 1499,
+            "max": 3984
+          },
+          "elbow_flex": {
+            "min": 729,
+            "max": 2921
+          },
+          "wrist_flex": {
+            "min": 373,
+            "max": 2728
+          },
+          "wrist_roll": {
+            "min": 0,
+            "max": 4095
+          },
+          "gripper": {
+            "min": 1926,
+            "max": 3389
+          }
+        },
+        "validation": {
+          "arm_in_range": true,
+          "gripper_in_range": true,
+          "outside_limits": [],
+          "ready_for_motion": false,
+          "note": "Teaching observation; verify gripper targets, clearance, and route before motion."
+        }
+      }
+    }
+  },
+  "schema": "staged_teaching_v1"
+}

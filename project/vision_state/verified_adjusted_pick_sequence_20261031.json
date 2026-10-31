@@ -1,0 +1,18 @@
+{
+  "schema": "verified_adjusted_pick_sequence_v1",
+  "mode": "operator-aligned grasp with automated lift, transfer and release",
+  "grasp_pose_source": "operator_adjusted_grasp_20261031.json",
+  "pickup_verification": "operator confirmed keychain lifted clear and remained in gripper",
+  "release_verification": "fresh camera image shows keychain outside drawn grid, jaw open and arm retreated",
+  "release_image": "/tmp/confirmed_grasp_outside_release.jpg",
+  "grasp_raw": {"shoulder_pan": 1900, "shoulder_lift": 2841, "elbow_flex": 2063, "wrist_flex": 2133, "wrist_roll": 2093},
+  "short_lift_raw": {"shoulder_pan": 1900, "shoulder_lift": 2797, "elbow_flex": 2098, "wrist_flex": 2147, "wrist_roll": 2093},
+  "raised_raw": {"shoulder_pan": 1900, "shoulder_lift": 1719, "elbow_flex": 2820, "wrist_flex": 2420, "wrist_roll": 2093},
+  "outside_high_raw": {"shoulder_pan": 1303, "shoulder_lift": 1719, "elbow_flex": 2820, "wrist_flex": 2420, "wrist_roll": 2093},
+  "outside_release_raw": {"shoulder_pan": 1303, "shoulder_lift": 2123, "elbow_flex": 2518, "wrist_flex": 2288, "wrist_roll": 2106},
+  "jaw_open_raw_observed": 2370,
+  "controller_final_phase": "holding",
+  "controller_error": null,
+  "fully_autonomous_detection_to_grasp_verified": false,
+  "scope": "One physically confirmed pickup after operator alignment, followed by completed automated transfer/release. Does not validate arbitrary pixel-to-joint grasp accuracy."
+}

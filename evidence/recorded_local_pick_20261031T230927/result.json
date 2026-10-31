@@ -1,0 +1,31 @@
+{
+  "object": {
+    "center": [
+      410.85211181640625,
+      558.4732055664062
+    ],
+    "box": [
+      362,
+      469,
+      100,
+      181
+    ],
+    "angle": 91.81256103515625,
+    "area": 15422.5
+  },
+  "operator_confirmed_success": true,
+  "operator_report": "จบสำเร็จ",
+  "video_fps": 5,
+  "frames": 660,
+  "camera_errors": [],
+  "sequence_completed": true,
+  "mode": "camera-gated verified fixed pose",
+  "target_raw": {
+    "shoulder_pan": 1916,
+    "shoulder_lift": 2842,
+    "elbow_flex": 2077,
+    "wrist_flex": 2119,
+    "wrist_roll": 2094
+  },
+  "grip_raw": 2118
+}

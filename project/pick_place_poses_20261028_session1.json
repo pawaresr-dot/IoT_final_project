@@ -1,0 +1,60 @@
+{
+  "robot_id": "pawacha_so100_follower",
+  "poses": {
+    "bottom_left": {
+      "approach": {
+        "recorded_at": "2026-10-28T14:30:11.159100+00:00",
+        "joint_degrees": {
+          "shoulder_pan": 15.824175824175825,
+          "shoulder_lift": -28.175824175824175,
+          "elbow_flex": 53.010989010989015,
+          "wrist_flex": 37.67032967032967,
+          "wrist_roll": -0.04395604395604396
+        },
+        "gripper_percent": 8.407382091592618,
+        "raw_position": {
+          "shoulder_pan": 2002,
+          "shoulder_lift": 2421,
+          "elbow_flex": 2428,
+          "wrist_flex": 1979,
+          "wrist_roll": 2047,
+          "gripper": 2049
+        },
+        "limits": {
+          "shoulder_pan": {
+            "min": 475,
+            "max": 3169
+          },
+          "shoulder_lift": {
+            "min": 1499,
+            "max": 3984
+          },
+          "elbow_flex": {
+            "min": 729,
+            "max": 2921
+          },
+          "wrist_flex": {
+            "min": 373,
+            "max": 2728
+          },
+          "wrist_roll": {
+            "min": 0,
+            "max": 4095
+          },
+          "gripper": {
+            "min": 1926,
+            "max": 3389
+          }
+        },
+        "validation": {
+          "arm_in_range": true,
+          "gripper_in_range": true,
+          "outside_limits": [],
+          "ready_for_motion": false,
+          "note": "Teaching observation; verify gripper targets, clearance, and route before motion."
+        }
+      }
+    }
+  },
+  "schema": "staged_teaching_v1"
+}

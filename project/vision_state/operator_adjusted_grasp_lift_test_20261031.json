@@ -1,0 +1,12 @@
+{
+  "source_pose": "operator_adjusted_grasp_20261031.json",
+  "gripper_after_close_raw": 2118,
+  "gripper_load_raw": 132,
+  "gripper_status": 0,
+  "lift_actual_raw": {"shoulder_pan": 1900, "shoulder_lift": 2797, "elbow_flex": 2098, "wrist_flex": 2147, "wrist_roll": 2093},
+  "outcome": "short_lift_operator_confirmed",
+  "pickup_verified": true,
+  "verification_source": "operator_confirmation_in_chat",
+  "operator_statement": "ใช่",
+  "verified_scope": "keychain lifted clear of surface and held in gripper; release not yet confirmed"
+}

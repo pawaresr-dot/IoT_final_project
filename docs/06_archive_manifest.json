@@ -1,0 +1,34 @@
+{
+  "source_files": 16661,
+  "source_bytes": 7279968640,
+  "archives": [
+    {
+      "file": "full_project_part_01.zip",
+      "bytes": 1481027198,
+      "sha256": "36272b45d31f95d553209c9459cf0cf05b6568bdc3cc34592de0be001101409d"
+    },
+    {
+      "file": "full_project_part_02.zip",
+      "bytes": 1434788665,
+      "sha256": "6872331c1c687463de88aa32718e897a8bf6534d3dbc7073ed3c6ef60c519883"
+    },
+    {
+      "file": "full_project_part_03.zip",
+      "bytes": 1453951199,
+      "sha256": "b9f168ec4b5e33b86c1bfb44d6ab45e644f92151740f0ebb218ef611d81dfa11"
+    },
+    {
+      "file": "full_project_part_04.zip",
+      "bytes": 1478835530,
+      "sha256": "920f5745b1a16a48a87ff0fb5468373179cad71934cd43c603bb57a4392623c5"
+    },
+    {
+      "file": "full_project_part_05.zip",
+      "bytes": 1435108284,
+      "sha256": "c9fa273b9e29f2398a5eeb4c87cfd6e3255d033579bb9a8d7e3ce5ca08dbd621"
+    }
+  ],
+  "excluded": "submission_20261031 itself, .git, __pycache__, .DS_Store",
+  "restore": "Extract all standalone ZIP parts into the same destination; each contains different files under final_project/.",
+  "github_upload_status": "Not uploaded; requires authenticated GitHub session."
+}
