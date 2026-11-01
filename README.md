@@ -1,4 +1,4 @@
-# SO-ARM100 Vision-gated Pick-and-Place
+# IoT_final_project — SO-ARM100 Vision-gated Pick-and-Place
 
 ระบบต้นแบบตรวจวัตถุในช่องรับขนาดเล็ก แล้วหยิบด้วยท่าที่สอนและปล่อยนอกตาราง
 
